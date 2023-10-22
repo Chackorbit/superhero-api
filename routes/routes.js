@@ -1,11 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 
-const fs = require("fs");
-
-const static = require("node-static");
 const router = express.Router();
-// const superheroModel = require("../model/superheroModel");
 const createSuperhero = require("../controllers/addSuperhero");
 const listSuperheroes = require("../controllers/getAllSuperhero");
 const getSuperheroDetails = require("../controllers/getDetailsSuperhero");

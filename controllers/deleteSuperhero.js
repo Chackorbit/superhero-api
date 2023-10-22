@@ -8,10 +8,11 @@ const deleteSuperhero = async (req, res) => {
 
     const superhero = await Superhero.findByIdAndDelete(id);
 
-    const oldImagePath = path.join("public", "image", superhero.images[0]);
-
-    if (fs.existsSync(oldImagePath)) {
-      fs.unlinkSync(oldImagePath);
+    if (superhero.images[0]) {
+      const oldImagePath = path.join("public", "image", superhero.images[0]);
+      if (fs.existsSync(oldImagePath)) {
+        fs.unlinkSync(oldImagePath);
+      }
     }
 
     if (!superhero) {
